@@ -1,0 +1,101 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkred;
+}
+.middle-container {
+    display: flex;
+    flex-grow: initial;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    min-width: 600px;
+}
+.left-container,.right-container {
+display: flex;
+flex-direction: column;
+justify-content: end;
+height: 80vh;
+width: 18%;
+}
+.left-container {
+    align-items: end;
+}
+img {
+    width: 140px;
+    height: 140px;
+    transform: rotate(90deg);
+}
+.header-container {
+    display: flex;
+    max-height: 80px;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 50px;
+    font-family: cursive;
+    background-color: darkred;
+    color: lightgoldenrodyellow;
+    font-style: italic;
+    text-shadow: -1px 0 gold, 0 1px black, 1px 0 gold, 0 -1px white;
+}
+.square-container {
+display: flex;
+background-color: white;
+flex-wrap: wrap;
+justify-content: center;
+flex-direction: row;
+margin: 0px;
+padding: 0px;
+outline-style: solid;
+outline-color: darkgray;
+outline-width: 5px;
+border-radius: 2px;
+border-style: ridge;
+/* min and max widths and heights must be set this way in order for the grid to stay the same size and not adjust when more squares are added */
+max-width: 597px;
+min-width: 597px;
+min-height: 597px;
+max-height: 597px;
+overflow: visible;
+}
+.square {
+    /* border box must be used so that squareSize variable is correctly applied and borders do not add any extra width/height to the square  */
+    box-sizing: border-box; 
+    /* border: 1px solid black; */
+
+}
+.footer-container {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: red;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 13px;
+    text-align: center;
+    font-weight: bold;
+}
+.grid-setup, .grid-clear {
+background-color: lightgray;
+min-width: 200px;
+border-radius: 15px;
+border: 1px black solid;
+font-style: italic;
+font-family: cursive;
+font-size: 20px;
+text-shadow: -1px 0 goldenrod, 0 1px black, 1px 0 white, 0 -1px white;
+color: black;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40vw;
+}
+.grid-setup:active, .grid-clear:active {
+    transform: scale(1.05);
+}
