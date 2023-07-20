@@ -24,7 +24,7 @@ generateGrid(80);
 // stores square selecter in a variable 
 let squares = document.querySelectorAll('.square');
 // uses that variable to iterate through each square in order for them to be selected via an event listener to apply the pixelation function 
-squares.forEach((event) => event.addEventListener('mouseover',pixelation));
+squares.forEach((event) => event.addEventListener('dragover',pixelation));
 // function to remove the grid
 function removeGrid () {
     // stores the number of squares in the childCount variable by counting the amount of child elements there are for the parent container node 
@@ -54,7 +54,7 @@ function getUserInput () {
         else {alert('Error')}
     // prompts pixelation effect in order for it to apply to new grid, without this line, I could not get this event listener and function to operate properly on the new grid 
     let squares = document.querySelectorAll('.square');
-    squares.forEach(div => div.addEventListener('mouseover',pixelation));
+    squares.forEach(div => div.addEventListener('dragover',pixelation));
     gridPosition = 0;
     window.addEventListener('keydown',rotateCircle);
 }
