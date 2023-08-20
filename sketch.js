@@ -20,11 +20,19 @@ function generateGrid(gridWidth) {
         }
 }
 //default grid of 16 squares wide - will show up on page load 
-generateGrid(80);
+generateGrid(30);
 // stores square selecter in a variable 
 let squares = document.querySelectorAll('.square');
 // uses that variable to iterate through each square in order for them to be selected via an event listener to apply the pixelation function 
-squares.forEach((event) => event.addEventListener('dragover',pixelation));
+var mouseIsDown = false
+squares.forEach((event) => event.addEventListener('mousedown', () => {mouseIsDown = true}));
+squares.forEach((event) => event.addEventListener('mouseup', () => {mouseIsDown = false}));
+
+squares.forEach((event) => event.addEventListener('mouseover', (event) => {
+    if(mouseIsDown === true){
+        pixelation(event)
+    }}));
+
 // function to remove the grid
 function removeGrid () {
     // stores the number of squares in the childCount variable by counting the amount of child elements there are for the parent container node 
@@ -54,7 +62,13 @@ function getUserInput () {
         else {alert('Error')}
     // prompts pixelation effect in order for it to apply to new grid, without this line, I could not get this event listener and function to operate properly on the new grid 
     let squares = document.querySelectorAll('.square');
-    squares.forEach(div => div.addEventListener('dragover',pixelation));
+    squares.forEach((event) => event.addEventListener('mousedown', () => {mouseIsDown = true}));
+    squares.forEach((event) => event.addEventListener('mouseup', () => {mouseIsDown = false}));
+    
+    squares.forEach((event) => event.addEventListener('mouseover', (event) => {
+        if(mouseIsDown === true){
+            pixelation(event)
+        }}));
     gridPosition = 0;
     window.addEventListener('keydown',rotateCircle);
 }
@@ -68,6 +82,7 @@ function pixelation (event) {
     random2 = Math.floor(Math.random() * (max - min) + min);
     random3 = Math.floor(Math.random() * (max - min) + min);
     event.target.style.backgroundColor = `rgb(${random2},${random3}, ${random})`;
+
 }
 // button to generate grid
 let gridSetup = document.getElementsByClassName('grid-setup');
